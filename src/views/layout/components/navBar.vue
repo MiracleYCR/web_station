@@ -22,12 +22,12 @@
           <el-dropdown-menu class="user-dropdown">
             <router-link to="/">
               <el-dropdown-item>
-                <el-icon><Setting /></el-icon>
+                <el-icon class="svg-icon"><Setting /></el-icon>
                 设置
               </el-dropdown-item>
             </router-link>
             <el-dropdown-item divided @click="onLogout">
-              <el-icon><SwitchButton /></el-icon>
+              <el-icon class="svg-icon"><SwitchButton /></el-icon>
               退出登录
             </el-dropdown-item>
           </el-dropdown-menu>

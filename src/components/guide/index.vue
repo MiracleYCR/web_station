@@ -1,7 +1,7 @@
 <template>
   <div class="guide-container">
     <el-tooltip content="功能引导" :auto-close="200">
-      <el-icon id="guide-start" @click="onGuide">
+      <el-icon class="svg-icon" id="guide-start" @click="onGuide">
         <Guide />
       </el-icon>
       <!-- <SvgIcon id="guide-start" icon="guide" @click="onGuide" /> -->

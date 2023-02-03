@@ -1,6 +1,6 @@
 <template>
   <div @click="onTriggerScreenFull">
-    <el-icon>
+    <el-icon class="svg-icon">
       <FullScreen />
     </el-icon>
   </div>

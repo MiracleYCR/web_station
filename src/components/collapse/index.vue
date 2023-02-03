@@ -1,6 +1,6 @@
 <template>
   <div class="collapse-wrapper" @click="onTriggerCollapse">
-    <el-icon class="collapse-icon">
+    <el-icon class="collapse-icon svg-icon">
       <Fold v-show="store.getters.sideBarOpened" />
       <Expand v-show="!store.getters.sideBarOpened" />
     </el-icon>

@@ -14,7 +14,7 @@
     >
       {{ item.title }}
       <el-icon
-        class="el-icon-close"
+        class="el-icon-close svg-icon"
         v-show="!isActive(item)"
         @click.prevent.stop="onClose(index)"
       >

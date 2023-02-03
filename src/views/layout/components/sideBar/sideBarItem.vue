@@ -2,7 +2,7 @@
   <!-- 支持渲染多级 menu 菜单 -->
   <el-sub-menu v-if="route.children.length > 0" :index="route.path">
     <template #title>
-      <el-icon>
+      <el-icon class="svg-icon">
         <component :is="route.meta.icon"></component>
       </el-icon>
       <span>{{ route.meta.title }}</span>
@@ -16,7 +16,7 @@
   </el-sub-menu>
   <!-- 渲染 item 项 -->
   <el-menu-item v-else :index="route.path">
-    <el-icon>
+    <el-icon class="svg-icon">
       <component :is="route.meta.icon"></component>
     </el-icon>
     <span>{{ route.meta.title }}</span>

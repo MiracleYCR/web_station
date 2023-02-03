@@ -12,13 +12,13 @@
         <div class="title-container">
           <h2 class="title">用户登陆</h2>
           <el-button link class="public-visitor">
-            <el-icon><Avatar /></el-icon>
+            <el-icon class="svg-icon"><Avatar /></el-icon>
             &nbsp;游客登陆
           </el-button>
         </div>
 
         <el-form-item prop="username">
-          <el-icon class="svg-container"><User /></el-icon>
+          <el-icon class="svg-container svg-icon"><User /></el-icon>
           <el-input
             type="text"
             name="username"
@@ -28,7 +28,7 @@
         </el-form-item>
 
         <el-form-item prop="password">
-          <el-icon class="svg-container"><Lock /></el-icon>
+          <el-icon class="svg-container svg-icon"><Lock /></el-icon>
           <el-input
             name="password"
             placeholder="请输入用户密码"
@@ -36,10 +36,16 @@
             v-model="loginForm.password"
           ></el-input>
           <span class="show-pwd" @click="changePasswordType">
-            <el-icon v-show="passwordType === 'password'" class="svg-container">
+            <el-icon
+              v-show="passwordType === 'password'"
+              class="svg-container svg-icon"
+            >
               <View />
             </el-icon>
-            <el-icon v-show="passwordType === 'text'" class="svg-container">
+            <el-icon
+              v-show="passwordType === 'text'"
+              class="svg-container svg-icon"
+            >
               <Hide />
             </el-icon>
           </span>
@@ -47,7 +53,7 @@
         <div style="float: right; margin-bottom: 20px">
           <span class="signup-link" @click="triggleSignup">
             用户注册
-            <el-icon><ArrowRight /></el-icon>
+            <el-icon class="svg-icon"><ArrowRight /></el-icon>
           </span>
         </div>
         <el-button
@@ -74,14 +80,14 @@
       >
         <div class="title-container">
           <el-button link class="returnLogin" @click="returnLogin">
-            <el-icon><ArrowLeft /></el-icon>
+            <el-icon class="svg-icon"><ArrowLeft /></el-icon>
             返回登陆
           </el-button>
           <h2 class="title">用户注册</h2>
         </div>
 
         <el-form-item prop="username">
-          <el-icon class="svg-container"><User /></el-icon>
+          <el-icon class="svg-container svg-icon"><User /></el-icon>
           <el-input
             type="text"
             name="username"
@@ -91,7 +97,7 @@
         </el-form-item>
 
         <el-form-item prop="password">
-          <el-icon class="svg-container"><Lock /></el-icon>
+          <el-icon class="svg-container svg-icon"><Lock /></el-icon>
           <el-input
             name="password"
             placeholder="请输入用户密码"
@@ -99,17 +105,23 @@
             v-model="signupForm.password"
           ></el-input>
           <span class="show-pwd" @click="changePasswordType">
-            <el-icon v-show="passwordType === 'password'" class="svg-container">
+            <el-icon
+              v-show="passwordType === 'password'"
+              class="svg-container svg-icon"
+            >
               <View />
             </el-icon>
-            <el-icon v-show="passwordType === 'text'" class="svg-container">
+            <el-icon
+              v-show="passwordType === 'text'"
+              class="svg-container svg-icon"
+            >
               <Hide />
             </el-icon>
           </span>
         </el-form-item>
 
         <el-form-item prop="repassword">
-          <el-icon class="svg-container"><Lock /></el-icon>
+          <el-icon class="svg-container svg-icon"><Lock /></el-icon>
           <el-input
             name="password"
             placeholder="请重复输入用户密码"
@@ -119,11 +131,14 @@
           <span class="show-pwd" @click="changeRepasswordType">
             <el-icon
               v-show="repasswordType === 'password'"
-              class="svg-container"
+              class="svg-container svg-icon"
             >
               <View />
             </el-icon>
-            <el-icon v-show="repasswordType === 'text'" class="svg-container">
+            <el-icon
+              v-show="repasswordType === 'text'"
+              class="svg-container svg-icon"
+            >
               <Hide />
             </el-icon>
           </span>
