@@ -38,12 +38,8 @@ module.exports = {
   devServer: {
     // 本地服务放在前面？
     proxy: {
-      '/cms_api': {
+      '/web_station_api': {
         target: 'http://localhost:3000/',
-        changeOrigin: true
-      },
-      '/api': {
-        target: 'https://api.imooc-admin.lgdsunday.club/',
         changeOrigin: true
       }
     }
