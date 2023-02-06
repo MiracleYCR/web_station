@@ -16,10 +16,10 @@ export const publicRoutes = [
         path: '/home',
         name: 'home',
         component: () =>
-          import(/* webpackChunkName: "profile" */ '@/views/home/index.vue'),
+          import(/* webpackChunkName: "home" */ '@/views/home/index.vue'),
         meta: {
-          title: '个人主页',
-          icon: 'User'
+          title: '站点主页',
+          icon: 'House'
         }
       }
     ]
@@ -57,6 +57,29 @@ export const privateRoutes = [
         meta: {
           title: '写微博',
           icon: 'EditPen'
+        }
+      }
+    ]
+  },
+  {
+    path: '/profile',
+    component: layout,
+    redirect: '/profile/setting',
+    name: 'profileCenter',
+    meta: {
+      title: '个人中心',
+      icon: 'User'
+    },
+    children: [
+      {
+        path: '/profile/setting',
+        component: () =>
+          import(
+            /* webpackChunkName: "profile-setting" */ '@/views/profile/setting.vue'
+          ),
+        meta: {
+          title: '用户设置',
+          icon: 'Setting'
         }
       }
     ]

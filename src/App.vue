@@ -4,7 +4,13 @@
   </el-config-provider>
 </template>
 
-<script setup></script>
+<script setup>
+import { useStore } from 'vuex'
+
+const store = useStore()
+
+store.dispatch('user/getUserProfile')
+</script>
 
 <style lang="scss" scoped>
 @import '@/styles/mixin.scss';

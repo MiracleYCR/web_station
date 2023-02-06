@@ -26,3 +26,9 @@ export const api_isExist = (postdata) => {
     data: postdata
   })
 }
+
+export const api_profile = () => {
+  return request({
+    url: '/user/profile'
+  })
+}

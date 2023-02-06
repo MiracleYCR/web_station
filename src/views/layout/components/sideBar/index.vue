@@ -4,9 +4,11 @@
       <el-avatar
         :size="logoHeight"
         shape="square"
-        src="https://avatars.githubusercontent.com/u/29778918?v=4"
+        :src="$store.getters.userProfile.picture"
       ></el-avatar>
-      <h1 class="logo-title" v-if="$store.getters.sideBarOpened">Miracle</h1>
+      <h1 class="logo-title" v-if="$store.getters.sideBarOpened">
+        {{ $store.getters.userProfile.nickname }}
+      </h1>
     </div>
     <el-scrollbar>
       <SideBarMenu />

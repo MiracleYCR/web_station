@@ -17,12 +17,19 @@ service.interceptors.request.use(
 
 service.interceptors.response.use(
   (response) => {
-    const { errno, data, message } = response.data
-    if (errno === 0) {
+    const { code, data } = response.data
+
+    if (code === 200) {
+      if (data.errno === 0) {
+        ElMessage.success(data.message)
+      }
+      if (data.errno && data.errno !== 0) {
+        ElMessage.error(data.message)
+      }
       return data
     } else {
-      ElMessage.error(message)
-      return Promise.reject(new Error(message))
+      ElMessage.error(data.message)
+      return Promise.reject(new Error(data.message))
     }
   },
   (error) => {

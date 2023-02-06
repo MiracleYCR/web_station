@@ -207,7 +207,7 @@ const signupRules = ref({
           store
             .dispatch('user/checkExist', value)
             .then((data) => {
-              if (data) {
+              if (data.id) {
                 callback(new Error('用户名已存在'))
               } else {
                 callback()
@@ -257,10 +257,12 @@ const handleLogin = () => {
     loginLoading.value = true
     store
       .dispatch('user/login', loginForm.value)
-      .then(() => {
+      .then((resp) => {
         loginLoading.value = false
-        router.push('/')
-        resetForm(loginForm.value)
+        if (!resp.errno) {
+          router.push('/')
+          resetForm(loginForm.value)
+        }
       })
       .catch(() => {
         loginLoading.value = false
@@ -279,10 +281,12 @@ const handleSignup = () => {
   signupLoading.value = true
   store
     .dispatch('user/signup', signupForm.value)
-    .then(() => {
+    .then((resp) => {
       signupLoading.value = false
-      returnLogin()
-      resetForm(signupForm.value)
+      if (!resp.errno) {
+        returnLogin()
+        resetForm(signupForm.value)
+      }
     })
     .catch(() => {
       signupLoading.value = false
