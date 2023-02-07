@@ -21,6 +21,16 @@ export const publicRoutes = [
           title: '站点主页',
           icon: 'House'
         }
+      },
+      {
+        path: '/movies',
+        name: 'movies',
+        component: () =>
+          import(/* webpackChunkName: "movies" */ '@/views/movies/index.vue'),
+        meta: {
+          title: '影视飓风',
+          icon: 'Film'
+        }
       }
     ]
   }

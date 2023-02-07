@@ -2,9 +2,10 @@
   <div>
     <div class="logo-container">
       <el-avatar
-        :size="logoHeight"
+        fit="cover"
         shape="square"
-        :src="$store.getters.userProfile.picture"
+        :size="logoHeight"
+        :src="`http://localhost:3000${$store.getters.userProfile.picture}`"
       ></el-avatar>
       <h1 class="logo-title" v-if="$store.getters.sideBarOpened">
         {{ $store.getters.userProfile.nickname }}

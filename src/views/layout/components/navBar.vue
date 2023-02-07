@@ -14,8 +14,9 @@
         <div class="avatar-wrapper">
           <el-avatar
             shape="circle"
+            fit="cover"
             :size="40"
-            :src="$store.getters.userProfile.picture"
+            :src="`http://localhost:3000${$store.getters.userProfile.picture}`"
           ></el-avatar>
         </div>
         <template #dropdown>

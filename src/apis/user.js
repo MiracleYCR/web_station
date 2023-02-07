@@ -27,8 +27,18 @@ export const api_isExist = (postdata) => {
   })
 }
 
+// 用户信息
 export const api_profile = () => {
   return request({
     url: '/user/profile'
+  })
+}
+
+// 更新用户信息
+export const api_updateProfile = (postdata) => {
+  return request({
+    url: '/user/updateProfile',
+    method: 'PATCH',
+    data: postdata
   })
 }
