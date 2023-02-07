@@ -1,4 +1,5 @@
 import md5 from 'md5'
+import { api_uploadFile } from '@/apis/utils'
 import { api_login, api_signup, api_isExist, api_profile } from '@/apis/user'
 
 export default {
@@ -59,12 +60,25 @@ export default {
       })
     },
 
-    async getUserProfile() {
+    getUserProfile() {
       return new Promise((resolve, reject) => {
         api_profile()
           .then((data) => {
             console.log(data)
             this.commit('user/setUserProfile', data.userInfo)
+          })
+          .catch((err) => {
+            reject(err)
+          })
+      })
+    },
+
+    changeUserAvatar(context, fileData) {
+      return new Promise((resolve, reject) => {
+        api_uploadFile(fileData)
+          .then((data) => {
+            console.log(data)
+            resolve(data)
           })
           .catch((err) => {
             reject(err)
