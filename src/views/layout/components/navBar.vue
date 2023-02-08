@@ -25,7 +25,7 @@
               <el-icon class="svg-icon"><Setting /></el-icon>
               设置
             </el-dropdown-item>
-            <el-dropdown-item divided @click="onLogout">
+            <el-dropdown-item divided @click="handleLogout">
               <el-icon class="svg-icon"><SwitchButton /></el-icon>
               退出登录
             </el-dropdown-item>
@@ -37,6 +37,7 @@
 </template>
 
 <script setup>
+import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 
 import Guide from '@/components/guide/index.vue'
@@ -45,10 +46,15 @@ import BreadCrumb from '@/components/breadCrumb/index.vue'
 import ScreenFull from '@/components/screenFull/index.vue'
 import HeaderSearch from '@/components/headerSearch/index.vue'
 
+const store = useStore()
 const router = useRouter()
 
 const handleProfileSetting = () => {
   router.push('/profile/setting')
+}
+
+const handleLogout = () => {
+  store.dispatch('user/logout')
 }
 </script>
 

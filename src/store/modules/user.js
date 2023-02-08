@@ -1,11 +1,15 @@
 import md5 from 'md5'
+import router from '../../router'
 import { api_uploadFile } from '@/apis/utils'
+
 import {
   api_login,
+  api_logout,
   api_signup,
   api_isExist,
   api_profile,
-  api_updateProfile
+  api_updateProfile,
+  api_updatePassword
 } from '@/apis/user'
 
 export default {
@@ -18,6 +22,9 @@ export default {
   mutations: {
     setUserProfile(state, profile) {
       state.userProfile = profile
+    },
+    deleteUserProfile(state) {
+      state.userProfile = {}
     }
   },
 
@@ -32,6 +39,19 @@ export default {
         })
           .then((data) => {
             resolve(data)
+          })
+          .catch((err) => {
+            reject(err)
+          })
+      })
+    },
+
+    // 退出登陆
+    logout() {
+      return new Promise((resolve, reject) => {
+        api_logout()
+          .then(() => {
+            router.push('/login')
           })
           .catch((err) => {
             reject(err)
@@ -74,7 +94,12 @@ export default {
       return new Promise((resolve, reject) => {
         api_profile()
           .then((data) => {
-            this.commit('user/setUserProfile', data.userInfo)
+            if (data.userInfo) {
+              this.commit('user/setUserProfile', data.userInfo)
+              resolve(data)
+            } else {
+              router.push('/login')
+            }
           })
           .catch((err) => {
             reject(err)
@@ -100,6 +125,22 @@ export default {
     updateUserProfile(context, newProfileData) {
       return new Promise((resolve, reject) => {
         api_updateProfile(newProfileData)
+          .then((data) => {
+            resolve(data)
+          })
+          .catch((err) => {
+            reject(err)
+          })
+      })
+    },
+
+    // 重置用户密码
+    updateUserPassword(context, passwordData) {
+      return new Promise((resolve, reject) => {
+        api_updatePassword({
+          password: md5(passwordData.password),
+          newpassword: md5(passwordData.newpassword)
+        })
           .then((data) => {
             resolve(data)
           })

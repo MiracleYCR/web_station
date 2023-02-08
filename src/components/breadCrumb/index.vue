@@ -2,17 +2,18 @@
   <el-breadcrumb class="breadcrumb-wrapper" separator="/">
     <transition-group name="breadcrumb">
       <el-breadcrumb-item
+        class="breadcrumb-item"
         v-for="(item, index) in breadcrumbData"
         :key="item.path"
       >
         <!-- 不可点击项 -->
-        <span class="no-redirect" v-if="index === breadcrumbData.length - 1">
+        <div class="no-redirect" v-if="index === breadcrumbData.length - 1">
           {{ item.meta.title }}
-        </span>
+        </div>
         <!-- 可点击项 -->
-        <span class="redirect" v-else @click="onRedirect(item)">
+        <div class="redirect" v-else @click="onRedirect(item)">
           {{ item.meta.title }}
-        </span>
+        </div>
       </el-breadcrumb-item>
     </transition-group>
   </el-breadcrumb>
@@ -53,14 +54,17 @@ watch(
 
 <style lang="scss" scoped>
 .breadcrumb-wrapper {
-  display: inline-block;
-  font-size: 14px;
-  line-height: 50px;
+  height: 100%;
+  display: inline-flex;
+  font-size: 13px;
+  align-items: center;
   margin-left: 8px;
 
   .redirect {
     color: #666;
     font-weight: 600;
+    margin-top: 1px;
+
     &:hover {
       cursor: pointer;
       color: v-bind(redirectHoverColor);
@@ -68,8 +72,13 @@ watch(
   }
 
   :deep(.no-redirect) {
+    margin-top: 1px;
     color: #97a8be;
     cursor: text;
+  }
+
+  :deep(.el-breadcrumb__separator) {
+    margin-top: 1px;
   }
 }
 </style>

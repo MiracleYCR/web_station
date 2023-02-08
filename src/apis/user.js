@@ -9,6 +9,14 @@ export const api_login = (postdata) => {
   })
 }
 
+// 退出登陆
+export const api_logout = () => {
+  return request({
+    url: '/user/logout',
+    method: 'POST'
+  })
+}
+
 // 注册
 export const api_signup = (postdata) => {
   return request({
@@ -38,6 +46,15 @@ export const api_profile = () => {
 export const api_updateProfile = (postdata) => {
   return request({
     url: '/user/updateProfile',
+    method: 'PATCH',
+    data: postdata
+  })
+}
+
+// 重置用户密码
+export const api_updatePassword = (postdata) => {
+  return request({
+    url: '/user/updatePassword',
     method: 'PATCH',
     data: postdata
   })

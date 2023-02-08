@@ -91,7 +91,6 @@ watch(menuVisible, (val) => {
     position: relative;
     cursor: pointer;
     height: 26px;
-    line-height: 26px;
     border: 1px solid #d8dce5;
     border-radius: 5px;
     color: #495060;
@@ -99,7 +98,6 @@ watch(menuVisible, (val) => {
     padding: 0 8px;
     font-size: 12px;
     margin-left: 5px;
-    // margin-top: 4px;
     &:first-of-type {
       margin-left: 15px;
     }

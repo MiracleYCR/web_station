@@ -5,7 +5,7 @@
       <el-icon class="svg-icon">
         <component :is="route.meta.icon"></component>
       </el-icon>
-      <span>{{ route.meta.title }}</span>
+      <span class="web-station-menu-title">{{ route.meta.title }}</span>
     </template>
     <!-- 循环渲染 -->
     <sideBarItem
@@ -19,7 +19,7 @@
     <el-icon class="svg-icon">
       <component :is="route.meta.icon"></component>
     </el-icon>
-    <span>{{ route.meta.title }}</span>
+    <span class="web-station-menu-title">{{ route.meta.title }}</span>
   </el-menu-item>
 </template>
 
@@ -35,4 +35,9 @@ defineProps({
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.web-station-menu-title {
+  box-sizing: border-box;
+  padding-top: 3px;
+}
+</style>

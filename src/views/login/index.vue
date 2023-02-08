@@ -257,12 +257,12 @@ const handleLogin = () => {
     loginLoading.value = true
     store
       .dispatch('user/login', loginForm.value)
-      .then((resp) => {
+      .then(() => {
         loginLoading.value = false
-        if (!resp.errno) {
-          router.push('/')
+        store.dispatch('user/getUserProfile').then(() => {
           resetForm(loginForm.value)
-        }
+          router.push('/')
+        })
       })
       .catch(() => {
         loginLoading.value = false

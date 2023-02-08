@@ -17,9 +17,7 @@ export default {
     },
 
     addTagsViewList(state, tag) {
-      console.log(tag.path)
       const isFind = state.tagsViewList.find((item) => item.path === tag.path)
-      console.log(isFind)
       if (!isFind) {
         state.tagsViewList.push(tag)
         console.log(state.tagsViewList)
