@@ -51,6 +51,7 @@ export default {
       return new Promise((resolve, reject) => {
         api_logout()
           .then(() => {
+            resolve()
             router.push('/login')
           })
           .catch((err) => {

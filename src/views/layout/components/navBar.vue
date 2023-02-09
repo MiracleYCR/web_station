@@ -53,8 +53,9 @@ const handleProfileSetting = () => {
   router.push('/profile/setting')
 }
 
-const handleLogout = () => {
-  store.dispatch('user/logout')
+const handleLogout = async () => {
+  await store.dispatch('user/logout')
+  store.commit('app/resetTagsView')
 }
 </script>
 

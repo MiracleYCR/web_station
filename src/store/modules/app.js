@@ -1,5 +1,5 @@
 import { TAGS_VIEW } from '@/constant'
-import { getItem, setItem } from '@/utils/storage'
+import { getItem, setItem, removeItem } from '@/utils/storage'
 import styleVariables from '@/styles/variable.module.scss'
 
 export default {
@@ -20,7 +20,6 @@ export default {
       const isFind = state.tagsViewList.find((item) => item.path === tag.path)
       if (!isFind) {
         state.tagsViewList.push(tag)
-        console.log(state.tagsViewList)
         setItem(TAGS_VIEW, state.tagsViewList)
       }
     },
@@ -51,6 +50,11 @@ export default {
         )
       }
       setItem(TAGS_VIEW, state.tagsViewList)
+    },
+
+    resetTagsView(state) {
+      state.tagsViewList = []
+      removeItem(TAGS_VIEW)
     }
   }
 }
